@@ -1,0 +1,9 @@
+{
+	"name": "increprasad",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "943c11ff-d820-4b67-bcbb-a82cb4c8914a",
+		"tenantId": "52b3f46c-c6ec-4c2a-bb38-cdeb867e3bf4"
+	}
+}
