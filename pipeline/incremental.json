@@ -46,7 +46,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select max(LastModifytime) as newwatermarkvalue from @{pipeline().parameters.tablename}",
+							"value": "select max(@{pipeline().parameters.modifydatecol}) as newwatermarkvalue from @{pipeline().parameters.tablename}",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -87,7 +87,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select * from @{pipeline().parameters.tablename}\nwhere lastmodifytime > '@{activity('lastwatermark').output.firstRow.WatermarkValue}'",
+							"value": "select * from @{pipeline().parameters.tablename}\nwhere @{pipeline().parameters.modifydatecol} > '@{activity('lastwatermark').output.firstRow.WatermarkValue}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -181,6 +181,10 @@
 			"tablename": {
 				"type": "string",
 				"defaultValue": "data_source_table"
+			},
+			"modifydatecol": {
+				"type": "string",
+				"defaultValue": "LastModifytime"
 			}
 		},
 		"annotations": [],
