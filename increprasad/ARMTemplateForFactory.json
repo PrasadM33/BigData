@@ -215,7 +215,7 @@
 				"parameters": {
 					"tablename": {
 						"type": "string",
-						"defaultValue": "data_source_table"
+						"defaultValue": "customer_table"
 					},
 					"modifydatecol": {
 						"type": "string",
